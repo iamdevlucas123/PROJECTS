@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(14, 14, 86, 0.425), blue);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.162);
+    padding: 60px;
+    border-radius: 20px;
+}   
+
+#submit {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+#senha, #usuario {
+    margin-bottom: 18px;
+}
+
+#senha {
+    margin-left: 55px;
+}
+
+.container > h1{
+    margin-left: 40px;
+}
+
+/*main page*/
+
+.container_main {
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(4, 26, 58);
+    height: 600px;
+    width: 600px;
+    border-radius: 20px;
+    color: white;
+}
+
+.child_nome{
+    margin: 5px auto;
+}
+
+.child_saldo{
+    display: flex;
+    margin: 10px auto;
+    padding: 20px;
+    font-size: 30px;
+}
+
+#visibility {
+    background-color: rgb(4, 26, 58);
+    color: white;
+    margin-left: 30px;
+}
+
+.deposito_saque {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 5px auto;
+}
+
+.historico{
+    margin: 5px auto;
+}
+
+#historico {
+    width: 280px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+#historico::-webkit-scrollbar{
+    display: none;
+}

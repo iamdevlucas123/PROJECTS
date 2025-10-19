@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container_main">
+
+        <!--Welcome block-->
+        <div class="child_nome">
+            <h1 id="welcome">Seja bem vindo, </h1>
+            <p>conta corrente</p>
+        </div>
+
+        <!--saldo block-->
+        <div class="child_saldo">
+            <p>Saldo: R$ <span id="saldo">****</span></p>
+            <button class="material-icons" id="visibility">visibility</button>
+        </div>
+        
+        <div class="deposito_saque">
+
+            <!--deposit block-->
+            <label>
+                <input type="number" name="depositar" id="depositar">
+                <input type="submit" value="depositar" id="btnDeposit">
+            </label>
+
+            <!--withdraw block-->
+            <label>
+                <input type="number" name="sacar" id="withdraw">
+                <input type="submit" value="Sacar" id="btnWithdraw">
+            </label>
+        </div>
+
+        <!--Historic block-->
+        <div class="historico">
+            <select name="historico" id="historico" size="12"></select>
+        </div>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
