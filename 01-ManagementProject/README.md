@@ -24,8 +24,6 @@ Objetivo: Demonstrar boas práticas de **React**, **componentização**, **lazy 
 
 ## 📷 Preview
 
-> Substitua os links abaixo com imagens ou GIFs do seu projeto.
-
 ![Home Page](link-da-imagem-ou-gif)
 ![Dashboard](link-da-imagem-ou-gif)
 ![Kanban](link-da-imagem-ou-gif)
@@ -51,9 +49,6 @@ project-manager/
 │ └─ index.jsx
 ├─ package.json
 └─ README.md
-
-markdown
-Copiar código
 
 ---
 
