@@ -1,5 +1,11 @@
-
+import NavBar from "../components/Home/navBar"
+import MidleText from "../components/Home/midleText"
 
 export default function Home() {
-    return <h1>olá</h1>
+    return (
+        <>
+            <NavBar/>
+            <MidleText/>
+        </>
+    )
 }
