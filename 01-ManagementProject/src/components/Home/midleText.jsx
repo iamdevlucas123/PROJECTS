@@ -44,16 +44,33 @@ export default function MidleText() {
 
   return (
     <section className="w-full bg-white py-20 px-6 text-center">
-      <h2 className="text-3xl font-bold text-gray-800 mb-4">
-        Empower Your Business with{" "}
-        <span className="text-blue-600 border-r-2 border-blue-600 animate-pulse">
-          {text}
-        </span>
-      </h2>
-      <p className="text-gray-600 max-w-2xl mx-auto">
-        Discover how Lumina's can transform your operations, enhance decision-making, and drive growth. 
-        Join the revolution of intelligent business strategies today.
-      </p>
-    </section>
+  <h2 className="text-3xl font-bold text-gray-800 mb-4">
+    Empower Your Business with{" "}
+    <span className="text-blue-600 border-r-2 border-blue-600 animate-pulse">
+      {text}
+    </span>
+  </h2>
+
+  <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+    Discover how Lumina's can transform your operations, enhance decision-making, and drive growth. 
+    Join the revolution of intelligent business strategies today.
+  </p>
+
+  <a href="../login">
+    <button
+      className="
+        relative overflow-hidden px-8 py-3 font-semibold rounded-lg
+        bg-blue-600 text-white shadow-md
+        transition-all duration-300 ease-out
+        hover:scale-105 hover:shadow-xl
+        before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-400 before:to-blue-700
+        before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500
+      "
+    >
+      <span className="relative z-10">Start Now!</span>
+    </button>
+  </a>
+</section>
+
   );
 }

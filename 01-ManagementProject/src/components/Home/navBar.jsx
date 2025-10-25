@@ -38,12 +38,16 @@ export default function NavBar() {
 
         {/* Botões à direita */}
         <div className="flex items-center space-x-3">
-          <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-800 bg-gray-100 hover:bg-gray-200 transition">
-            Login
-          </button>
-          <button className="px-4 py-2 rounded-md text-sm font-medium text-white bg-black hover:bg-gray-800 transition">
-            Sign Up
-          </button>
+          <a href="./login">
+            <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-800 bg-gray-100 hover:bg-gray-200 transition">
+              Login
+            </button>
+          </a>
+          <a href="./signup">
+            <button className="px-4 py-2 rounded-md text-sm font-medium text-white bg-black hover:bg-gray-800 transition">
+              Sign Up
+            </button>
+          </a>
         </div>
       </nav>
     </header>
