@@ -1,115 +1,52 @@
+import { Home, FolderKanban, CheckSquare, Users, Settings, CirclePlus, CircleFadingArrowUp } from "lucide-react";
 import { useState } from "react";
-import { Home, CheckCircle, Bell, TrendingUp, Folder, Target, Users, Plus,} from "lucide-react";
+import { useUIStore } from "../../store/uiStore";
 
 export default function Sidebar() {
-  const [projectsOpen, setProjectsOpen] = useState(true);
-  const [teamOpen, setTeamOpen] = useState(true);
+  const [active, setActive] = useState("Painel");
+  const isOpen = useUIStore((state) => state.isSidebarOpen);
+
+  const menu = [
+    { name: "Painel", icon: Home },
+    { name: "Projetos", icon: FolderKanban },
+    { name: "Tarefas", icon: CheckSquare },
+    { name: "Equipe", icon: Users },
+    { name: "Configurações", icon: Settings },
+  ];
 
   return (
-    <div className="w-64 min-h-screen bg-gray-900 text-gray-200 flex flex-col justify-between p-4">
-      {/* Top Section */}
-      <div>
-        <button className="flex items-center gap-2 mb-6 px-3 py-2 bg-red-600 hover:bg-red-700 rounded text-white font-semibold transition">
-          <Plus /> Criar
-        </button>
-
-        {/* Navegação principal */}
-        <nav className="space-y-2">
-          <a
-            href="#"
-            className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-          >
-            <Home /> Página inicial
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-          >
-            <CheckCircle /> Minhas tarefas
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-          >
-            <Bell /> Caixa de entrada
-          </a>
-        </nav>
-
-        {/* Insights */}
-        <div className="mt-6">
-          <h3 className="uppercase text-xs text-gray-400 flex justify-between items-center px-3 mb-2">
-            Insights <span className="cursor-pointer">+</span>
-          </h3>
-          <nav className="space-y-1">
-            <a
-              href="#"
-              className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-            >
-              <TrendingUp /> Relatórios
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-            >
-              <Folder /> Portfólios
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-            >
-              <Target /> Metas
-            </a>
-          </nav>
-        </div>
-
-        {/* Projetos */}
-        <div className="mt-6">
-          <h3
-            className="uppercase text-xs text-gray-400 flex justify-between items-center px-3 mb-2 cursor-pointer"
-            onClick={() => setProjectsOpen(!projectsOpen)}
-          >
-            Projetos <span>{projectsOpen ? "−" : "+"}</span>
-          </h3>
-          {projectsOpen && (
-            <nav className="space-y-1">
-              <a
-                href="#"
-                className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-              >
-                <div className="w-3 h-3 rounded-full bg-green-400" /> modify
-              </a>
-            </nav>
-          )}
-        </div>
-
-        {/* Equipe */}
-        <div className="mt-6">
-          <h3
-            className="uppercase text-xs text-gray-400 flex justify-between items-center px-3 mb-2 cursor-pointer"
-            onClick={() => setTeamOpen(!teamOpen)}
-          >
-            Equipe <span>{teamOpen ? "−" : "+"}</span>
-          </h3>
-          {teamOpen && (
-            <nav className="space-y-1">
-              <a
-                href="#"
-                className="flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-800 transition"
-              >
-                <Users /> Engenharia
-              </a>
-            </nav>
-          )}
-        </div>
+    <div
+      className={`h-[calc(100vh-3.5rem)] bg-gray-900 text-gray-200 flex flex-col transition-all duration-300 ${
+        isOpen ? "w-64" : "w-20"
+      }`}
+    >
+      {/* Cabeçalho da sidebar */}
+      <div className="h-16 border-b border-gray-800 flex items-center justify-center text-lg font-bold">
+        {isOpen ? "Name Company" : <CirclePlus size={24} />}
       </div>
 
-      {/* Bottom Actions */}
-      <div className="mt-6 flex flex-col gap-2">
-        <button className="w-full py-2 bg-yellow-500 hover:bg-yellow-600 rounded font-semibold text-gray-900 transition">
-          Fazer upgrade
-        </button>
-        <button className="w-full py-2 border border-gray-700 rounded font-semibold hover:bg-gray-800 transition">
-          Convidar
+      {/* Menu de navegação */}
+      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+        {menu.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => setActive(item.name)}
+            className={`flex items-center w-full gap-3 px-3 py-2 rounded-lg transition-colors ${
+              active === item.name
+                ? "bg-indigo-600 text-white"
+                : "hover:bg-gray-800"
+            }`}
+          >
+            <item.icon size={20} />
+            {isOpen && <span>{item.name}</span>}
+          </button>
+        ))}
+      </nav>
+
+      {/* Rodapé da sidebar */}
+      <div className="p-4 border-t border-gray-800">
+        <button className="p-3 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition">
+          {isOpen ? "Fazer upgrade" : <CircleFadingArrowUp size={24} />}
         </button>
       </div>
     </div>
