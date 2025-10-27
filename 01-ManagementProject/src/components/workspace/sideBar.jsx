@@ -1,10 +1,10 @@
 import { Home, FolderKanban, CheckSquare, Users, Settings, CirclePlus, CircleFadingArrowUp } from "lucide-react";
-import { useState } from "react";
 import { useUIStore } from "../../store/uiStore";
 
 export default function Sidebar() {
-  const [active, setActive] = useState("Painel");
   const isOpen = useUIStore((state) => state.isSidebarOpen);
+  const active = useUIStore((state) => state.activeMenu);
+  const setActive = useUIStore((state) => state.setActiveMenu);
 
   const menu = [
     { name: "Painel", icon: Home },

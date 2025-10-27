@@ -1,7 +1,7 @@
 
 import { Plus, List, SquareKanban, Calendar, Paperclip, SquareChartGantt } from "lucide-react";
 
-export default function TaskHeader() {
+export default function TaskHeader({ activeTab = "Lista", onTabChange = () => {} }) {
   return (
     <div className="bg-white p-4 shadow rounded-lg">
       {/* Top section */}
@@ -22,30 +22,64 @@ export default function TaskHeader() {
 
       {/* Tabs section */}
       <div className="flex space-x-6 border-b mb-4 text-gray-600">
-        <button className="pb-2 border-b-2 border-blue-600 font-semibold flex items-center gap-1 text-blue-600">
-            <List size={15}/>
-            Lista
+        <button
+          onClick={() => onTabChange("Lista")}
+          className={`pb-2 flex items-center gap-1 ${
+            activeTab === "Lista"
+              ? "border-b-2 border-blue-600 font-semibold text-blue-600"
+              : "hover:text-gray-800"
+          }`}
+        >
+          <List size={15} />
+          Lista
         </button>
-        <button className="pb-2 hover:text-gray-800 flex items-center gap-1">
-            <SquareKanban size={15}/>
-            Kanban
+        <button
+          onClick={() => onTabChange("Kanban")}
+          className={`pb-2 flex items-center gap-1 ${
+            activeTab === "Kanban"
+              ? "border-b-2 border-blue-600 font-semibold text-blue-600"
+              : "hover:text-gray-800"
+          }`}
+        >
+          <SquareKanban size={15} />
+          Kanban
         </button>
-        <button className="pb-2 hover:text-gray-800 flex items-center gap-1">
-            <Calendar size={15}/>
-            Calendario
+        <button
+          onClick={() => onTabChange("Calendario")}
+          className={`pb-2 flex items-center gap-1 ${
+            activeTab === "Calendario"
+              ? "border-b-2 border-blue-600 font-semibold text-blue-600"
+              : "hover:text-gray-800"
+          }`}
+        >
+          <Calendar size={15} />
+          Calendario
         </button>
-        <button className="pb-2 hover:text-gray-800 flex items-center gap-1">
-            <Paperclip size={15}/>
-            Arquivos
+        <button
+          onClick={() => onTabChange("Arquivos")}
+          className={`pb-2 flex items-center gap-1 ${
+            activeTab === "Arquivos"
+              ? "border-b-2 border-blue-600 font-semibold text-blue-600"
+              : "hover:text-gray-800"
+          }`}
+        >
+          <Paperclip size={15} />
+          Arquivos
         </button>
-        <button className="pb-2 hover:text-gray-800 flex items-center gap-1">
-            <SquareChartGantt size={15}/>
-            Gantt
+        <button
+          onClick={() => onTabChange("Gantt")}
+          className={`pb-2 flex items-center gap-1 ${
+            activeTab === "Gantt"
+              ? "border-b-2 border-blue-600 font-semibold text-blue-600"
+              : "hover:text-gray-800"
+          }`}
+        >
+          <SquareChartGantt size={15} />
+          Gantt
         </button>
         <button className="pb-2 hover:text-gray-800">+</button>
       </div>
     </div>
   );
 };
-
 
